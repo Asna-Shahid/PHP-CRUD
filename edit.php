@@ -19,7 +19,7 @@ if(isset($_REQUEST['btn_save'])){
 
 
 
-    header("location:listrecords.php?msg&ID=".$id);
+    header("location:listrecords.php");
 }
 
 
@@ -53,7 +53,10 @@ if(isset($_REQUEST['btn_save'])){
                     <a href="./listrecords.php" class="btn btn-secondary">Back to List</a>
                     <?php
                       $id = $_GET['id'];  
-                    $get_record = mysqli_fetch_array(mysqli_query($dbconnection,"SELECT * FROM tbl_info WHERE id = '$id'"));
+                      $querys="SELECT * FROM tbl_info WHERE id = '$id'";
+                      $record=mysqli_query($dbconnection,$querys);
+
+                    $get_record = mysqli_fetch_array($record);
                    
                     ?>
                     <div class="form-group">
@@ -93,22 +96,7 @@ if(isset($_REQUEST['btn_save'])){
             </div>
            
         </div>
-        <div class="col-sm-4">
-                <?php
-                if(isset($_REQUEST['msg']))
-                {
-            ?>
-                <h2 class="alert alert-success" id="message" style="display: ;">Data updated Successfully</h2>
-                <script>
-                function hide_it() {
-                    document.getElementById("message").style.display = "none";
-                }
-                setTimeout(hide_it, 3000);
-                </script>
-                <?php
-                }
-                ?>
-            </div>
+       
 
 
     </div>

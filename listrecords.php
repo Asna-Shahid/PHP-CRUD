@@ -54,27 +54,29 @@
                     </tr>
                 </thead>
                 <tbody>
-                <?php
-                $query = "select * from tbl_info";  
-                $run = mysqli_query($dbconnection,$query);  
+                
+
+
+             
+                        <?php   
+                         $get_record = "SELECT * FROM tbl_info ";
+                         $record = mysqli_query($dbconnection,$get_record);
 
       $i=1;  
-           if ($num = mysqli_num_rows($run)>0) {  
-                while ($result = mysqli_fetch_assoc($run)) {  
+           if ($num = mysqli_num_rows($record)>0) {  
+                while ($result = mysqli_fetch_assoc($record)) {  
                      echo "  
                           <tr class='data'>  
-                          <td>".$i++."</td>  
-                             
+                          <td>".$i++."</td>
                                <td>".$result['name']."</td>  
                                <td>".$result['email']."</td>  
                                <td>".$result['phone']."</td>  
                                <td>".$result['cnic']."</td>  
                                <td>".$result['education']."</td>  
-                              
-                               <td><a href='listrecords.php?id=".$result['id']."'   <b class='material-icons btn btn-danger btn-simple' 
-                              >Delete</a>
-                               
-                              <a class='btn btn-primary' href='edit.php?id=".$result['id']."' class='opt'>Edit/Update</a>  </td>
+                               <td> <a href='listrecords.php?id=".$result["id"]."'   <b class='material-icons btn btn-danger btn-simple'
+                               >Delete</a>
+                                
+                               <a class='btn btn-primary' href='edit.php?id=".$result["id"]."' class='opt'>Edit/Update</a> </td>  
                           </tr>  
                      ";  
                 }  
