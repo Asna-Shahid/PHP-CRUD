@@ -19,7 +19,7 @@ if(isset($_REQUEST['btn_save'])){
 
 
 
-    header("location:edit.php?msg&ID=".$_REQUEST['ID']);
+    header("location:listrecords.php?msg&ID=".$id);
 }
 
 
