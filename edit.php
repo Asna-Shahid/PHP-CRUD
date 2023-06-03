@@ -51,6 +51,8 @@ if(isset($_REQUEST['btn_save'])){
                 <form method="post" enctype="multipart/form-data">
                     <h1>Edit Student information Form</h1>
                     <a href="./listrecords.php" class="btn btn-secondary">Back to List</a>
+
+                    
                     <?php
                       $id = $_GET['id'];  
                       $querys="SELECT * FROM tbl_info WHERE id = '$id'";

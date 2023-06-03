@@ -4,12 +4,8 @@
  if (isset($_GET['id'])) {  
       $id = $_GET['id'];  
       $query = "DELETE FROM tbl_info WHERE id = '$id'";  
-      $run = mysqli_query($dbconnection,$query);  
-      if ($run) {  
-           header('location:listrecords.php');  
-      }else{  
-           echo "Error: ".mysqli_error($conn);  
-      }  
+    mysqli_query($dbconnection,$query);  
+     
  }  
  ?> 
 <!DOCTYPE html>
